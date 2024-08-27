@@ -1,18 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0ouax81ucau6"]
+[gd_scene load_steps=3 format=3 uid="uid://c0ouax81ucau6"]
+
+[ext_resource type="Script" path="res://scenes/ball.gd" id="1_5qkfl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_87rxi"]
 radius = 25.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_5qkfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_87rxi")
 one_way_collision_margin = 3.0
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, 25, 7, 24, 12, 22, 17, 18, 19, 16, 22, 12, 24, 7, 25, 0, 24, -7, 22, -12, 18, -17, 13, -21, 6, -24, 0, -25, -6, -24, -12, -22, -18, -17, -21, -13, -24, -7, -25, 0, -24, 7, -22, 12, -20, 15, -17, 18, -13, 21, -9, 23, -6, 24)

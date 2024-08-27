@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 const SPEED := 300
 var v := 0.0
