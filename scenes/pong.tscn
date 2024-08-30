@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bphrnwae1ukmg"]
 
-[ext_resource type="PackedScene" uid="uid://dr8wemu4qypox" path="res://scenes/player.tscn" id="1_5un4t"]
+[ext_resource type="Script" path="res://scenes/pong.gd" id="1_e7a7i"]
 [ext_resource type="PackedScene" uid="uid://c0ouax81ucau6" path="res://scenes/ball.tscn" id="2_loqa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cylkl"]
@@ -10,14 +10,12 @@ size = Vector2(1152.5, 22.5)
 size = Vector2(1152, 25)
 
 [node name="Pong" type="Node2D"]
+script = ExtResource("1_e7a7i")
 
-[node name="Player" parent="." instance=ExtResource("1_5un4t")]
-position = Vector2(112, 312)
-
-[node name="RigidBody2D" parent="." instance=ExtResource("2_loqa0")]
+[node name="Ball" parent="." instance=ExtResource("2_loqa0")]
 position = Vector2(301, 309)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(301, 309)
 
 [node name="Bottom" type="CollisionShape2D" parent="Area2D"]

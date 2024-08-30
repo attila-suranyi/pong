@@ -4,7 +4,7 @@ extends CharacterBody2D
 var speed = 750
 
 func _ready() -> void:
-	velocity = Vector2(-500, 0)
+	velocity = Vector2(-500, -200)
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
