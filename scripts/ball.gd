@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+signal left_screen
 
 var speed = 750
 
 func _ready() -> void:
 	velocity = Vector2(-500, -200)
+	get_node("VisibleOnScreenNotifier2D").screen_exited.connect(_on_VisibilityNotifier2D_screen_exited)
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
@@ -14,5 +16,6 @@ func _physics_process(delta):
 			collision.get_collider().hit()
 
 func _on_VisibilityNotifier2D_screen_exited():
-	# Deletes the bullet when it exits the screen.
+	left_screen.emit()
+	print("EMIT")
 	queue_free()
