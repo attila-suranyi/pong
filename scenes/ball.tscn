@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ouax81ucau6"]
 
-[ext_resource type="Script" path="res://scenes/ball.gd" id="1_5qkfl"]
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_5qkfl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_87rxi"]
 radius = 25.0

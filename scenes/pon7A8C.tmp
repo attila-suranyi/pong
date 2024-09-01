@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://bphrnwae1ukmg"]
+
+[ext_resource type="Script" path="res://scripts/pong.gd" id="1_e7a7i"]
+[ext_resource type="PackedScene" uid="uid://c0ouax81ucau6" path="res://scenes/ball.tscn" id="2_loqa0"]
+[ext_resource type="PackedScene" uid="uid://bow7xi0xxapog" path="res://scenes/control.tscn" id="3_2gq5s"]
+[ext_resource type="Script" path="res://scripts/area_2d_2.gd" id="4_6k3ib"]
+[ext_resource type="Script" path="res://scripts/control.gd" id="4_lv30p"]
+[ext_resource type="Script" path="res://scripts/p_1_collision_shape_2d.gd" id="5_djlsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cylkl"]
+size = Vector2(1152.5, 22.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ggiq"]
+size = Vector2(1152, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo2v0"]
+size = Vector2(72.5, 658)
+
+[node name="Pong" type="Node2D"]
+script = ExtResource("1_e7a7i")
+
+[node name="Ball" parent="." instance=ExtResource("2_loqa0")]
+position = Vector2(301, 309)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+position = Vector2(301, 309)
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(275.75, 350.75)
+shape = SubResource("RectangleShape2D_cylkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(275, -321.5)
+shape = SubResource("RectangleShape2D_6ggiq")
+
+[node name="Control" parent="." instance=ExtResource("3_2gq5s")]
+script = ExtResource("4_lv30p")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(301, 309)
+script = ExtResource("4_6k3ib")
+
+[node name="P1_CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-337.75, 17)
+shape = SubResource("RectangleShape2D_vo2v0")
+script = ExtResource("5_djlsa")

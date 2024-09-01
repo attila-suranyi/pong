@@ -10,7 +10,6 @@ func _ready() -> void:
 	var player_2_pos := Vector2(1012, 312)
 	spawn_player(player_2_pos)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
