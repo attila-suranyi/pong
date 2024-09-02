@@ -3,7 +3,7 @@ extends Node2D
 const player_scene = preload("res://scenes/player.tscn")
 const ball_scene = preload("res://scenes/ball.tscn")
 var player_ids = 0
-var BALL_STARTING_POS = Vector2(301, 309)
+var BALL_STARTING_POS = Vector2(501, 309)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
