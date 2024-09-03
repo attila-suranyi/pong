@@ -1,16 +1,23 @@
 extends CharacterBody2D
 
-const SPEED := 300
+@export var speed := 300
+@export var rotation_speed := 0.02
 var v := 0.0
 @export var id : int
 
 func _physics_process(delta):
+	print(rotation)
 	var direction = Vector2(0, 0)
-	if id == 1:
-		direction = Input.get_axis("p2_move_up", "p2_move_down")
-	else:
+	var rotation_dir := 0.0
+	if id == 0:
 		direction = Input.get_axis("p1_move_up", "p1_move_down")
-	v = direction * SPEED
+		rotation_dir = Input.get_axis("p1_left", "p1_right")
+	else:
+		direction = Input.get_axis("p2_move_up", "p2_move_down")
+		rotation_dir = Input.get_axis("p2_left", "p2_right")
+		
+	v = direction * speed
+	rotation = rotation + rotation_dir * rotation_speed
 	
 	var viewport_size := get_viewport_rect().size
 	

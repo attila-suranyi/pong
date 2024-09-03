@@ -20,8 +20,8 @@ func _process(delta: float) -> void:
 
 func spawn_player(position):
 	var player: CharacterBody2D = player_scene.instantiate()
-	player_ids += player_ids + 1
 	player.id = player_ids
+	player_ids += player_ids + 1
 	player.global_position = position
 	self.add_child(player)
 	
