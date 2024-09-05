@@ -24,5 +24,6 @@ func _physics_process(delta):
 			velocity = velocity * (1 + speed_growth_rate) ** delta
 
 func _on_VisibilityNotifier2D_screen_exited():
+	print("EMIT")
 	left_screen.emit()
 	queue_free()

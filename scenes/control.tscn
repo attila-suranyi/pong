@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bow7xi0xxapog"]
+[gd_scene load_steps=4 format=3 uid="uid://bow7xi0xxapog"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_36ut5"]
 
@@ -21,6 +21,17 @@ func on_p1_scored():
 	p1_score += p1_score + 1
 	self.text = str(p1_score) + \" :Score: \"
 "
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1r78p"]
+properties/0/path = NodePath("Score:text")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:p1_score")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:p2_score")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -48,3 +59,6 @@ offset_right = 50.128
 offset_bottom = 34.925
 text = "0 :SCORE: 0"
 script = SubResource("GDScript_ud2mr")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1r78p")
