@@ -10,11 +10,10 @@ var player_ids = 0
 var BALL_STARTING_POS = Vector2(501, 309)
 var peer = ENetMultiplayerPeer.new()
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
@@ -38,8 +37,7 @@ func _on_join_pressed() -> void:
 	multiplayer.multiplayer_peer = peer
 	
 
-func add_ball(id):
-	print("ADD BALL")
+func add_ball(id = 1):
 	await get_tree().create_timer(2.0).timeout
 	
 	var new_ball = ball_scene.instantiate()
