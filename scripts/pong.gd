@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
-	
+
 func _on_host_pressed() -> void:
 	multiplayer.peer_connected.connect(_add_player)
 	multiplayer.peer_connected.connect(add_ball)
@@ -50,10 +50,14 @@ func add_ball(id = 1):
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
+	get_node("SpawnRoot").add_child(player)
+	_position_player.rpc(id)
+	
+@rpc("call_local")
+func _position_player(id: int):
+	var player = get_node("SpawnRoot/%s" % id)
 	
 	if id == 1:
 		player.global_position = Vector2(112, 312)
 	else:
 		player.global_position = Vector2(1012, 312)
-	
-	get_node("SpawnRoot").add_child(player)

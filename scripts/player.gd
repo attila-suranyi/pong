@@ -9,6 +9,11 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _physics_process(delta):
+	print(position)
+	
+	if position == Vector2(0, 0):
+		print("moved")
+	
 	var direction = Vector2(0, 0)
 	var rotation_dir := 0.0
 	if is_multiplayer_authority():
@@ -21,5 +26,3 @@ func _physics_process(delta):
 		
 		rotation_dir = Input.get_axis("p1_left", "p1_right")
 		rotation = rotation + rotation_dir * rotation_speed
-	
-	
